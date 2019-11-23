@@ -8,6 +8,10 @@ class CatsController < ApplicationController
     render json: @cat
   end
 
+  def new
+    render :new
+  end
+
   private
 
   def cat_params
