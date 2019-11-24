@@ -1,11 +1,13 @@
 class CatsController < ApplicationController
+  skip_before_action :verify_authenticity_token
+
   def index
     render json: Cat.all
   end
 
   def create
     @cat = Cat.create!(cat_params)
-    render json: @cat
+    render json: @cat, status: :created
   end
 
   def new

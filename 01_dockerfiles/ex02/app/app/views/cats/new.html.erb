@@ -1,14 +1,23 @@
-<h1>Add a new cat to CatDatabase!</h1>
+<h1 class="heading--1">Add a new cat to CatDatabase!</h1>
 
 <%= render 'cats/form' %>
 
-<h2>Your Cats</h2>
-<table id="catsList">
-<tr>
-  <th>Name</th>
-  <th>Age</th>
-  <th>Gender</th>
-  <th>Color</th>
-</tr>
+<h2 class="heading--2">Your Cats</h2>
+<table id="catsList" class="table">
+  <colgroup>
+    <col class="table__col" span="1">
+    <col class="table__col" span="1">
+    <col class="table__col" span="1">
+  </colgroup>
+  <thead>
+    <tr class="table__row--heading">
+      <th class="table__heading-title">Name</th>
+      <th class="table__heading-title">Age</th>
+      <th class="table__heading-title">Gender</th>
+      <th class="table__heading-title">Color</th>
+    </tr>
+  </thead>
+  <tbody id="catsListBody">
+  </tbody>
 </table>
 

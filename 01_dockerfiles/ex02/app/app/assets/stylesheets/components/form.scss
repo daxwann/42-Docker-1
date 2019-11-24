@@ -1,0 +1,24 @@
+.cat-form {
+	margin-bottom: 2em;
+	padding: 2em;
+	background-color: $light-gray;
+	border-radius: 1em;
+	
+  & div {
+		margin: 1em 0;
+	}
+}
+
+.cat-input {
+	border: 1px solid #000;
+	background-color: #fff;
+}
+
+.input--radio {
+	display: inline-block;
+	margin-right: 1em;
+
+	& input {
+		margin-left: 4px;
+	}
+}

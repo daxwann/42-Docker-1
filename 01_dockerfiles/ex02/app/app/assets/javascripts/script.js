@@ -1,17 +1,11 @@
-const cats = []
+let cats = []
 
 // display cats
 const displayCats = (cats) => {
-  const table = document.getElementById("catsList")
+  const table = document.getElementById("catsListBody")
   
   // remove previous data
-  const data = table.getElementsByClassName("cat-data")
-
-  if (data.length > 0) {
-    data.forEach(d => {
-      table.removeChild(d)
-    })
-  }
+  table.innerHTML = "";
 
   // add new data
   cats.forEach(cat => {
@@ -19,10 +13,17 @@ const displayCats = (cats) => {
     row.className = "cat-data";
 
     // create table data from JSON
-    const nameData = document.createElement('td').createTextNode(cat.name)
-    const ageData = document.createElement('td').createTextNode(cat.age)
-    const genderData = document.createElement('td').createTextNode(cat.sex)
-    const colorData = document.createElement('td').createTextNode(cat.color)
+    const nameData = document.createElement('td');
+    nameData.appendChild(document.createTextNode(cat.name));
+
+    const ageData = document.createElement('td');
+    ageData.appendChild(document.createTextNode(cat.age));
+
+    const genderData = document.createElement('td');
+    genderData.appendChild(document.createTextNode(cat.sex));
+
+    const colorData = document.createElement('td'); 
+    colorData.appendChild(document.createTextNode(cat.color));
 
     row.appendChild(nameData)
     row.appendChild(ageData)
@@ -37,8 +38,8 @@ const displayCats = (cats) => {
 const getCats = new XMLHttpRequest()
 
 getCats.onreadystatechange = () => {
-  if (this.readyState == 4 && this.status == 200) {
-    cats = JSON.parse(this.responseText)
+  if (getCats.readyState == 4 && getCats.status == 200) {
+    cats = JSON.parse(getCats.responseText)
     displayCats(cats)
   }
 }
@@ -51,14 +52,16 @@ const createNewCat = newCat => {
     const createCat = new XMLHttpRequest()
 
     createCat.onreadystatechange = () => {
-      if (this.readyState == 4 && this.status == 201) {
-        console.log(this.responseText)
+      if (createCat.readyState == 4 && createCat.status == 201) {
+        let newCat = JSON.parse(createCat.responseText)
+        cats = cats.concat(newCat);
+        displayCats(cats)
       }
     }
   
     createCat.open("POST", '/cats', true)
     createCat.setRequestHeader("Content-type", "application/json")
-    createCat.send(JSON.stringify(newCat));
+    createCat.send(JSON.stringify({cat: newCat}));
 }
 
 // after dom has loaded

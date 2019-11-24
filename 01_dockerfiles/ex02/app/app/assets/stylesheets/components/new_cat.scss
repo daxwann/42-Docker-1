@@ -1,0 +1,26 @@
+.table {
+	padding: 1em;
+	width: 100%;
+	border-spacing: 1em 0;
+
+	&__col {
+		width: 20%;
+	}
+
+	&__heading-title {
+		text-align: left;
+	}
+}
+
+.heading {
+  &--1 {
+		font-size: 3em;
+		margin: 1em 0;
+		color: $dark-blue;
+	}
+
+	&--2 {
+		font-size: 2em;
+		margin: 1em 0;
+	}
+}
