@@ -1,6 +1,16 @@
-<form class="create-cat" data-feed-id="#cat" action="/cats" method="POST">
-  
-
-
-  <input class="tweet-input_submit" type="Submit" value="Add Cat!">
+<form class="cat-form" id="createCat" action="/cats" method="POST">
+  <div>
+    <label>Name: <input class="cat-input cat-input__name" type="text" name="cat[name]" required/></label>
+  </div>
+  <div>
+    <label>Age: <input class="cat-input cat-input__age" type="number" name="cat[age]" required/></label>
+  </div>
+  <div>
+    <label>Female <input class="cat-input__sex" type="radio" name="cat[sex]" value="F" checked></label>
+    <label>Male <input class="cat-input__sex" type="radio" name="cat[sex]" value="M"></label>
+  </div>
+  <div>
+    <label>Color: <input class="cat-input cat-input__color" type="text" name="cat[color]" required/></label>
+  </div>
+  <input class="cat-input__submit" type="Submit" value="Add Cat!">
 </form>
