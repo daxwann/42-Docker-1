@@ -56,12 +56,26 @@ const createNewCat = newCat => {
         let newCat = JSON.parse(createCat.responseText)
         cats = cats.concat(newCat);
         displayCats(cats)
+        cleanInputs()
       }
     }
   
     createCat.open("POST", '/cats', true)
     createCat.setRequestHeader("Content-type", "application/json")
     createCat.send(JSON.stringify({cat: newCat}));
+}
+
+const cleanInputs = () => {
+  const inputs = document.getElementsByClassName("cat-input")
+  for (let i = 0; i < inputs.length; i++) {
+    inputs[i].value = "";
+  }
+
+  const radioInputs = document.getElementsByClassName("cat-input__sex")
+  if (radioInputs[1].checked === true) {
+    radioInputs[1].checked = false;
+    radioInputs[0].checked = true;
+  }
 }
 
 // after dom has loaded
