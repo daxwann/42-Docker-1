@@ -1,0 +1,31 @@
+.cover-container {
+  background-image: url("/img/cover-photo-by-ihor-malytskyi.jpg");
+  background-position: bottom;
+  background-size: cover;
+  height: 95vh;
+  width: 100%;
+}
+
+.landing-content {
+  padding-top: 25vh;
+}
+
+.cover-heading {
+  text-shadow: var(--shadow-dark);
+  font-size: 3rem;
+
+  @include respond(bp-smallest) {
+    font-size: 2rem;
+  }
+}
+
+.lead--btn {
+  margin-top: 2rem;
+}
+
+.lead--subtitle {
+  @include respond(bp-smallest) {
+    font-size: 1.2rem;
+  }
+}
+

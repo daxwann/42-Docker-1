@@ -1,0 +1,32 @@
+html {
+  //this defines what 1rem is
+  font-size: 62.5%; //10px
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 1.7;
+  color: var(--color-grey-dark-2);
+  box-sizing: border-box;
+}
+
+.container--main {
+  background-color: var(--color-blue-lightest);
+  padding: 2rem;
+  min-height: 95vh;
+
+  // @include respond(bp-smallest) {
+  //   padding: 10px 2px;
+  //   margin: 0;
+  // }
+}
+
+.container--outer {
+  width: 100%; 
+  @include respond(bp-largest) {
+    padding: 0;
+    margin: 0;
+  }
+}
