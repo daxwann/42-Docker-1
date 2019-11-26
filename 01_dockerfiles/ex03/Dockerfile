@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM debian
 
 RUN apt-get update && \
     apt-get -y upgrade && \
